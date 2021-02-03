@@ -1,0 +1,1 @@
+RobotLocation[] locations   # Array of robots' AMCL poses

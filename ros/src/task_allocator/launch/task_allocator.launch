@@ -1,0 +1,9 @@
+<launch>
+    <arg name="bid_topic"/>
+    <arg name="confirmation_topic"/>
+    <node pkg="task_allocator" type="TaskAllocator.py" name="task_allocator" output="screen">
+    <!--<node name="task_allocator" pkg="task_allocator" type="task_allocator.py" >-->
+        <remap to="$(arg confirmation_topic)" from="/confirmation"/>
+        <remap to="$(arg bid_topic)" from="/bid"/>
+    </node>
+</launch>

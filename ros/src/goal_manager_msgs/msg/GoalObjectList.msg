@@ -1,0 +1,1 @@
+GoalObject[] goal_list      # A list of goals

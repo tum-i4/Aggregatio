@@ -1,0 +1,3 @@
+---
+ScheduleItem[] schedule     # List of task in the schedule
+uint32 cost                 # Total cost for the current schedule

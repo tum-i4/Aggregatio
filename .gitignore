@@ -1,0 +1,5 @@
+# Ignore the graphs created in the data analysis
+/ros/results/plots/*
+
+# Ignore the data collected
+/ros/results/data/*

@@ -1,0 +1,6 @@
+geometry_msgs/Pose pose         # Point associated to the required subjective opinion
+---
+float64 belief                  # Belief mass in the subjective opinion
+float64 disbelief               # Disbelief mass in the subjective opinion
+float64 uncertainty             # Uncertainty mass in the subjective opinion
+float64 expected_probability    # Expected probability in the subjective opinion

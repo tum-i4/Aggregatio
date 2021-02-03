@@ -1,0 +1,1 @@
+SO[] so_list    # A list of subjective opinions
