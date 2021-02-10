@@ -18,7 +18,7 @@
     <arg name="robot_1_fpp" default="0.2"/>
     <arg name="robot_1_fnp" default="0.2"/>
 
-    <arg name="gui" default="false"/>
+    <arg name="gui" default="true"/>
 
     <arg name="spawn_interval" default="100"/>
     <arg name="num_scan_aggregation" default="5"/>
@@ -26,7 +26,7 @@
 
     <arg name="sl_operator" default="CBF"/>
     <arg name="sl_threshold" default="80"/>
-    <arg name="sl_classpath" default="-Djava.class.path=/home/ge73xus/catkin_ws/src/knowledge_aggregation/subjective_logic/build/libs/subjective-logic-java-library-0.1.0.jar"/>
+    <arg name="sl_classpath" default="-Djava.class.path=/home/ubuntu/Desktop/Aggregatio/subjective_logic/build/libs/subjective-logic-java-library-0.1.0.jar"/>
     <arg name="use_sl" default="false"/>
     <arg name="sensor_noise" default="false"/>
     <arg name="adaptive_scheduling" default="true"/>

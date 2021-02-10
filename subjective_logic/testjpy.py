@@ -1,7 +1,7 @@
 import jpy
 
 # Create a new JVM with the SL library on its classpath
-jpy.create_jvm(['-Xmx512M', '-Djava.class.path=/home/ge73xus/catkin_ws/src/knowledge_aggregation/subjective_logic/build/libs/subjective-logic-java-library-0.1.0.jar'])
+jpy.create_jvm(['-Xmx512M', '-Djava.class.path=/home/ubuntu/Desktop/Aggregatio/subjective_logic/build/libs/subjective-logic-java-library-0.1.0.jar'])
 
 # Get a reference of the SubjectiveOpinion Java class through jpy bridge
 SubjectiveOpinion = jpy.get_type('de.tum.i4.subjectivelogic.SubjectiveOpinion')

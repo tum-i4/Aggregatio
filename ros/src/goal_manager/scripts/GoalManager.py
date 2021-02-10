@@ -319,30 +319,28 @@ class KnowledgeAggregator:
                 new_opinion_type = self.opinion_type(new_subjective_opinion)
                 old_opinion_type = self.opinion_type(subjective_opinion_in_map)
                 
-                # Option Comb.: Use CBF except when uncertainty < 1e-1 and conflicting then use CCF 
-                # to increase uncertainty.
-                if new_opinion_type != old_opinion_type and subjective_opinion_in_map.getUncertainty() < 1e-1:
-                    # Use CCF to increase uncertainty
-                    aggregated_opinion = self.SubjectiveOpinion.ccCollectionFuse(so_collection)
-                    # Check that uncertainty of CCF not < 1e-11 (else CCF unstable, then use average)
-                    if aggregated_opinion.getUncertainty() <= 1e-11:
-                        aggregated_opinion = self.SubjectiveOpinion.average(so_collection)
-                else:
-                    # matching types and large enough uncertainty so use CBF
-                    aggregated_opinion = self.SubjectiveOpinion.cumulativeCollectionFuse(so_collection)
                 
-                #'''
-                # Old Option: always use one operator
-                # if self.sl_operator == "CBF":
-                #aggregated_opinion = self.SubjectiveOpinion.cumulativeCollectionFuse(so_collection)
-                '''
+                if self.sl_operator == "Comb":
+                    # Option Comb.: Use CBF except when uncertainty < 1e-1 and conflicting then use CCF 
+                    # to increase uncertainty.
+                    if new_opinion_type != old_opinion_type and subjective_opinion_in_map.getUncertainty() < 1e-1:
+                        # Use CCF to increase uncertainty
+                        aggregated_opinion = self.SubjectiveOpinion.ccCollectionFuse(so_collection)
+                        # Check that uncertainty of CCF not < 1e-11 (else CCF unstable, then use average)
+                        if aggregated_opinion.getUncertainty() <= 1e-11:
+                            aggregated_opinion = self.SubjectiveOpinion.average(so_collection)
+                    else:
+                        # matching types and large enough uncertainty so use CBF
+                        aggregated_opinion = self.SubjectiveOpinion.cumulativeCollectionFuse(so_collection)
+                elif self.sl_operator == "CBF":
+                    aggregated_opinion = self.SubjectiveOpinion.cumulativeCollectionFuse(so_collection) 
                 elif self.sl_operator == "CCF":
                     aggregated_opinion = self.SubjectiveOpinion.ccCollectionFuse(so_collection)
                 elif self.sl_operator == "WBF":
                     aggregated_opinion = self.SubjectiveOpinion.weightedCollectionFuse(so_collection)
                 elif self.sl_operator == "AVG":
                     aggregated_opinion = self.SubjectiveOpinion.average(so_collection)
-                '''
+                
                 opinion = Opinion(belief=aggregated_opinion.getBelief(),
                                   disbelief=aggregated_opinion.getDisbelief(),
                                   uncertainty=aggregated_opinion.getUncertainty(),
