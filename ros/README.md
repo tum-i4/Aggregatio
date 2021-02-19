@@ -52,8 +52,9 @@ Below we provide a brief description of each node's functionality and a link to 
 
 ## Prerequisites 
 
+We provide a virtual box image at XXXXXXXX where the required environment are all set up. If you choose to use the virtual image, use the user name: Ubuntu and password: ubuntu. Then you can directly jump to 3.Running the simulation and the system.
 
-Before setting up and running the use cases make sure that:
+If you are using your own machine, before setting up and running the use cases make sure that:
 
 * You are using **Ubuntu 18.04** 
 * You have **Java** installed. Follow the [Java installation](../subjective_logic/Installing Java.md) instructions to set up Java in your system.
@@ -106,7 +107,7 @@ jpy is a Python-Java bridge which you can use to embed Java code in Python progr
 For convenience, we recommend to source your ROS environment and the testbed workspace by adding the following lines to your .bashrc file:
 ```
 source /opt/ros/melodic/setup.bash
-source /path/to/workspace/devel/setup.bash
+source /home/ubuntu/Desktop/Aggregatio/ros/devel/setup.bash
 ```
 
 Since we are using turtlebot3 Burger for simulation, we need to add the respective environment variable:
@@ -137,6 +138,7 @@ In order to change the simulation behavior, we need to configure the following p
  - `adaptive_scheduling`. Enable/disable the use of adaptation logic in the simulation. By default, self-adaptation is enabled.
  - `gen_seed`. Seed to be used to generate random locations where to spawn a new task. The default seed is 100.
  - `spawn_interval`. Time interval (in seconds) to create a new task. The default interval is 10s
+ - `no_of_robots`. The number of robots is limited to 4.
 
 This parameters are set accordingly in the launch or config files in the following sections.
 
@@ -146,26 +148,28 @@ It is recommended that the `sl_classpath` is set in the `.launch` files in the `
 By using roslaunch tool we can set directly the above mentioned parameters. For example, to simulate a scenario with 2 robots with knowledge aggregation enabled using Cumulative Belief Fusion, and spawn interval of 10s, we could execute the following command in a terminal, assuming the `sl_classpath` has been set in the `.launch` files:
 
 ```
-roslaunch master.launch use_sl:=true sl_operator:=CBF adaptive_scheduling:=true gen_seed:=100 spawn_interval:=10
+roslaunch master.launch use_sl:=true sl_operator:=CBF adaptive_scheduling:=true gen_seed:=100 spawn_interval:=10 no_of_robots:=2
 ```
 
-For convenience, bash scripts for different test scenarios are provided in the directory [test](../ros/test) of this repository. These assume, that the `sl_classpath` has been set in the `.launch` files.
-
-These scripts make use of the launch files contained in the [test](../ros/test) directory,  and the [robot_meta](../ros/src/robot_meta) and [launch_simulation](../ros/src/launch_simulation) ROS packages. If we were to add more robots in the simulation, their initial position, or the robot's simulation descriptors, we need to change these values manually in the corresponding launch file.
+This launch file make use of the [robot_meta](../ros/src/robot_meta) and [launch_simulation](../ros/src/launch_simulation) ROS packages. If we were to add more robots in the simulation, their initial position, or the robot's simulation descriptors, we need to change these values manually in the corresponding launch file.
 
 **Important**. Whether you use directly the `roslaunch` command or the launch scripts, you may see the current execution logs on the terminal. With the current implementation, when the Goal Manager node is launched, you may see the exception *`AttributeError: 'KnowledgeAggregator' object has no attribute 'occupancy_map'`*. This error is a known issue while starting the node, and will disappear when the needed ROS topics are published; more details about this exception are given in the [Goal manager](../ros/src/goal_manager) documentation.
 
 #### `master.launch` file
 This is the main launch file being used to start the simulation. The script defines the parameters that must be provided to configure the simulation and these parameters in turn, are then passed as arguments to the other launch files and/or for launching the global ROS nodes.
 
-Of particular importance, is in this file where we define the number of robots to be used in the simulation, as well as their initial properties. To add a new robot in the simulation, add the following lines at the beginning of the file:
+Of particular importance, is in this file where we define the number of robots to be used in the simulation, as well as their initial properties. To add a new robot in the simulation, add the following lines (change 0 to any non-exist robot's id) at the beginning of the file:
 
 ```
-<arg name="robot_0_name" default="robot_0"/>
-<arg name="robot_0_x_pos" default="-4.0"/>
-<arg name="robot_0_y_pos" default="4.5"/>
-<arg name="robot_0_z_pos" default="0.0"/>
-<arg name="robot_0_yaw" default="0.0"/>
+    <arg name="robot_0_name" default="robot_0"/>
+    <arg name="robot_0_number" default="0"/>
+    <arg name="robot_0_x_pos" default="-4.0"/>
+    <arg name="robot_0_y_pos" default="4.5"/>
+    <arg name="robot_0_z_pos" default="0.0"/>
+    <arg name="robot_0_yaw" default="0.0"/>
+    <arg name="robot_0_fpp" default="0.2"/>
+    <arg name="robot_0_fnp" default="0.2"/>
+
 ```
 
 Make sure to update the name of the launch arguments accordingly.
@@ -179,18 +183,21 @@ Also update the argument defining the number of robots:
 In order to launch the robots' nodes, the `master.launch` makes use of the [robot_meta](../ros/src/robot_meta) launch file. Include a call to this launch file and update the needed arguments accordingly as many times as robots you are using for the simulation:
 
 ```
-    <include file="$(find robot_meta)/launch/robot_meta.launch">
-        <arg name="robot_id" value="$(arg robot_1_name)"/>
-        <arg name="x" value="$(arg robot_1_x_pos)"/>
-        <arg name="y" value="$(arg robot_1_y_pos)"/>
-        <arg name="yaw" value="$(arg robot_1_yaw"/>
+   <include file="$(find robot_meta)/launch/robot_meta.launch">
+        <arg name="robot_id" value="$(arg robot_0_name)"/>
+        <arg name="robot_number" value="$(arg robot_0_number)"/>
+        <arg name="x" value="$(arg robot_0_x_pos)"/>
+        <arg name="y" value="$(arg robot_0_y_pos)"/>
+        <arg name="yaw" value="$(arg robot_0_yaw"/>
         <arg name="bid_topic" value="/bid"/>
         <arg name="new_goal_topic" value="/new_goal"/>
         <arg name="confirmation_topic" default="/confirmation"/>
         <arg name="noise" value="$(arg sensor_noise)"/>
         <arg name="adaptive_scheduling" value="$(arg adaptive_scheduling)"/>
-        <arg name="false_positive" value="true"/>
-        <arg name="false_positive_prob" default="$(arg false_positive_prob)"/>
+        <arg name="false_positive" value="$(arg false_positive)"/>
+        <arg name="false_negative" value="$(arg false_negative)"/>
+        <arg name="num_scan_aggregation" value="$(arg num_scan_aggregation)"/>
+        <arg name="false_negative_prob" value="$(arg robot_0_fnp)"/>
     </include>
 ```
 
