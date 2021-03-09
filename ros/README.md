@@ -54,7 +54,7 @@ We provide a virtual box image at XXXXXXXX where the required environment are al
 If you are using your own machine, before setting up and running the use cases make sure that:
 
 * You are using **Ubuntu 18.04** 
-* You have **Java** installed. Follow the [Java installation](../subjective_logic/Installing Java.md) instructions to set up Java in your system.
+* You have **Java** installed. Follow the [Java installation](../subjective_logic/Installing-Java.md) instructions to set up Java in your system.
 * **Python 2.7 and 3.6** working environments installed. Please, make sure that you have `pip` package installer in both environments, this will be useful to install other system dependencies.
 * **ROS** Melodic and **Gazebo** simulator are installed and running properly.  If this is not the case, refer to the following instructions in [Installing ROS and Gazebo](#3-installing-ros-and-gazebo).
 
