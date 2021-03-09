@@ -215,5 +215,4 @@ export GAZEBO_MASTER_URI=http://localhost:11335
 ```
 You may find additional information about this configuration in [How to run multiple Independent Gazebo instances on the same machine?](https://answers.ros.org/question/193062/how-to-run-multiple-independent-gazebo-instances-on-the-same-machine)
 
-The simulations for the thesis and SEAMS paper were executed running 3 to 5 simultaneous runs on the same PC. A side effect of running various simultaneous runs, is that we observed an increase in simulation runtime.   
 
