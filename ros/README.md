@@ -49,7 +49,7 @@ Below we provide a brief description of each node's functionality and a link to 
 
 ## Prerequisites 
 
-We provide a virtual box image at XXXXXXXX where the required environment are all set up. If you choose to use the virtual image, use the user name: Ubuntu and password: ubuntu. Then you can directly jump to Step [3. Running the simulation and the system](#running-the-simulation-and-the-system).
+We provide a virtual box image at XXXXXXXX where the required environment are all set up. If you choose to use the virtual image, use the user name: Ubuntu and password: ubuntu. Then you can directly jump to Step [3. Running the simulation and the system](#3-running-the-simulation-and-the-system).
 
 If you are using your own machine, before setting up and running the use cases make sure that:
 
@@ -97,9 +97,9 @@ Knowledge aggregation is performed using a Subjective Logic library implemented 
 
 jpy is a Python-Java bridge which you can use to embed Java code in Python programs or vice versa. To install jpy, follow the instructions under [Installing jpy](../subjective_logic/README.md#Installing jpy#Installing jpy) section.
 
-## Running the simulation and the system
+## 3. Running the simulation and the system
 
-### 3. Building and sourcing ROS packages
+### Building and sourcing ROS packages
 
 For convenience, we recommend to source your ROS environment and the testbed workspace by adding the following lines to your .bashrc file:
 ```
