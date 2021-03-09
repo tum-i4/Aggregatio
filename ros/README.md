@@ -2,7 +2,7 @@
 
 This repository contains the source code and resources to perform Knowledge Aggregation with Subjective Logic in a ROS-based simulation of Self-Adaptive multi-robot system.
 
-# Use-case description [Ana update]
+## Use-case description
 For this implementation we consider the following reference problem.
 
 In a robotics system, two robots or more are charged with the task of cleaning a perpetually, randomly appearing dirt in a set of locations in a room. The robots are aware of each other, meaning that they perceive the other as an obstacle while moving in the environment. Through sensor readings, in particular LIDAR scanning, the robots detect the dirt that has been appeared in the room. The detection of the dirt and its accuracy depends on the limited range of the robot’s sensors.
@@ -13,17 +13,14 @@ The system should exhibit self-adaptive features while pursuing its mission goal
 
 Additionally, due to the partially observable context of each robot and their related uncertainties, conflicting robots’ opinions about the same perceived context situation may arise, hindering the system’s adaptation. Again, the knowledge aggregation should provide mechanisms to resolve such conflicts.
 
-### Overview of the approach
+## Overview of the approach
 
-Ana TODO add a short description of the approach
+The following figure shows the overview of the approach.
 
 <img src="documentation_resources/approach_overview.JPG" alt="Overview of the approach" width="630" height="351" />
 
 
-
-
-
-# Implementation high-level architecture of the system
+## Implementation high-level architecture of the system
 
 The following figure shows the implementation architecture of our robotics system. 
 
