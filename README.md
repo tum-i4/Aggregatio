@@ -38,3 +38,8 @@ The [ros](../ros) folder contains the ROS implementation of a Multi-Robot system
 The [subjective_logic](../subjective_logic) directory contains the source code that implements the formalisms of subjective logic; in particular, it provides an API to perform the aggregation of the knowledge of multiple agents using different fusion operators. 
 
 The folders themselves contain a more detailed explanation about their content. In particular, the [ros](../ros) folder incorporates a detailed step by step guide on how to install and run the system, also including architectural details of the system.
+
+## Authors
+* Ana Petrovska, M.Sc. ana.petrovska@tum.de
+
+
