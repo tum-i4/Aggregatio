@@ -49,7 +49,7 @@ Below we provide a brief description of each node's functionality and a link to 
 
 ## Prerequisites 
 
-We provide a virtual box image at XXXXXXXX where the required environment are all set up. If you choose to use the virtual image, use the user name: Ubuntu and password: ubuntu. Then you can directly jump to 3.Running the simulation and the system.
+We provide a virtual box image at XXXXXXXX where the required environment are all set up. If you choose to use the virtual image, use the user name: Ubuntu and password: ubuntu. Then you can directly jump to Step 3. Running the simulation and the system.
 
 If you are using your own machine, before setting up and running the use cases make sure that:
 
