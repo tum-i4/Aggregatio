@@ -40,6 +40,8 @@ The [subjective_logic](../subjective_logic) directory contains the source code t
 The folders themselves contain a more detailed explanation about their content. In particular, the [ros](../ros) folder incorporates a detailed step by step guide on how to install and run the system, also including architectural details of the system.
 
 ## Authors
-* Ana Petrovska, M.Sc. ana.petrovska@tum.de
+*  Sergio Quijano, M.Sc. sergio.quijano.r@gmail.com
+*  Malte Neuss, M.Sc. malte.neuss@tum.de
+*  Ana Petrovska, M.Sc. ana.petrovska@tum.de
 
 
