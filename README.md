@@ -44,4 +44,5 @@ The folders themselves contain a more detailed explanation about their content. 
 *  Malte Neuss, M.Sc. malte.neuss@tum.de
 *  Ana Petrovska, M.Sc. ana.petrovska@tum.de
 
-
+## Acknowledgments
+We want to express sincere gratitude to everyone who was somehow involved in the development of the tool: Guan Erijage, Shanin Yousfi, Kevin Hawryluk, David Bartuseck, Theo Beffart, Ricardo Cedillo, M. Ansab Shohab and Martin B{\"u}chner.
