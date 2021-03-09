@@ -95,7 +95,7 @@ If these packages are missing in your environment, install them using `pip insta
 
 Knowledge aggregation is performed using a Subjective Logic library implemented in Java (the source code of the library can be found in the [Subjective Logic library directory](../subjective_logic)). Since our ROS nodes are written in Python, we need a Java-Python bridge to use such library.
 
-jpy is a Python-Java bridge which you can use to embed Java code in Python programs or vice versa. To install jpy, follow the instructions under [Installing jpy](../subjective_logic/README.md#Installing jpy#Installing jpy) section.
+jpy is a Python-Java bridge which you can use to embed Java code in Python programs or vice versa. To install jpy, follow the instructions under [Installing jpy](../subjective_logic/README.md#installing-jpy#installing-jpy) section.
 
 ## 3. Running the simulation and the system
 
