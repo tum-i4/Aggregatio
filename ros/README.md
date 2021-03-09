@@ -49,17 +49,17 @@ Below we provide a brief description of each node's functionality and a link to 
 
 ## Prerequisites 
 
-We provide a virtual box image at XXXXXXXX where the required environment are all set up. If you choose to use the virtual image, use the user name: Ubuntu and password: ubuntu. Then you can directly jump to Step [3. Running the simulation and the system](#3.-running-the-simulation-and-the-system).
+We provide a virtual box image at XXXXXXXX where the required environment are all set up. If you choose to use the virtual image, use the user name: Ubuntu and password: ubuntu. Then you can directly jump to Step [3. Running the simulation and the system](#running-the-simulation-and-the-system).
 
 If you are using your own machine, before setting up and running the use cases make sure that:
 
 * You are using **Ubuntu 18.04** 
 * You have **Java** installed. Follow the [Java installation](../subjective_logic/Installing Java.md) instructions to set up Java in your system.
 * **Python 2.7 and 3.6** working environments installed. Please, make sure that you have `pip` package installer in both environments, this will be useful to install other system dependencies.
-* **ROS** Melodic and **Gazebo** simulator are installed and running properly.  If this is not the case, refer to the following instructions in [Installing ROS and Gazebo](#installing-ros-and-gazebo).
+* **ROS** Melodic and **Gazebo** simulator are installed and running properly.  If this is not the case, refer to the following instructions in [Installing ROS and Gazebo](#3-installing-ros-and-gazebo).
 
 
-## The rest of the README is structured in three major segments: 
+## The rest of the README is structured in three major steps: 
 
 1. Installing the required packages necessary for running the system
 2. Installing the system / cloning the source code
@@ -97,9 +97,9 @@ Knowledge aggregation is performed using a Subjective Logic library implemented 
 
 jpy is a Python-Java bridge which you can use to embed Java code in Python programs or vice versa. To install jpy, follow the instructions under [Installing jpy](../subjective_logic/README.md#Installing jpy#Installing jpy) section.
 
-## 3. Running the simulation and the system
+## Running the simulation and the system
 
-### Building and sourcing ROS packages
+### 3. Building and sourcing ROS packages
 
 For convenience, we recommend to source your ROS environment and the testbed workspace by adding the following lines to your .bashrc file:
 ```
