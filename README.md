@@ -1,6 +1,35 @@
-# Knowledge Aggregation in Multi-Agent Self-Adaptive Cyber-Physical Systems
+# Framework for Knowledge Aggregation with Subjective Logic in Multi-Agent Self-Adaptive Cyber-Physical Systems
 
-This repository contains the source code and resources to perform Knowledge Aggregation with various probabilistic logics, such as Subjective Logic, in a ROS-based Simulated Self-Adaptive Multi-Robot System.
+This repository contains the source code and resources to perform Knowledge Aggregation with Subjective Logic in a ROS-based Simulated Self-Adaptive Multi-Robot System.
+
+## Academic Citations
+
+Please cite the following paper when using this tool.
+
+Petrovska, Ana, et al. "Knowledge aggregation with subjective logic in multi-agent self-adaptive cyber-physical systems." Proceedings of the IEEE/ACM 15th International Symposium on Software Engineering for Adaptive and Self-Managing Systems. 2020.
+
+@inproceedings{DBLP:conf/icse/PetrovskaQGP20,
+  author    = {Ana Petrovska and
+               Sergio Quijano and
+               Ilias Gerostathopoulos and
+               Alexander Pretschner},
+  editor    = {Shinichi Honiden and
+               Elisabetta Di Nitto and
+               Radu Calinescu},
+  title     = {Knowledge aggregation with subjective logic in multi-agent self-adaptive
+               cyber-physical systems},
+  booktitle = {{SEAMS} '20: {IEEE/ACM} 15th International Symposium on Software Engineering
+               for Adaptive and Self-Managing Systems, Seoul, Republic of Korea,
+               29 June - 3 July, 2020},
+  pages     = {149--155},
+  publisher = {{ACM}},
+  year      = {2020},
+  url       = {https://doi.org/10.1145/3387939.3391600},
+  doi       = {10.1145/3387939.3391600},
+  timestamp = {Tue, 29 Dec 2020 18:35:13 +0100},
+  biburl    = {https://dblp.org/rec/conf/icse/PetrovskaQGP20.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
 
 ## Workspace Structure
 
